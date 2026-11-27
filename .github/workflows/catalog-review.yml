@@ -1,0 +1,44 @@
+name: Catalog review
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions: {}
+
+concurrency:
+  group: catalog-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    name: Publish catalog check
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+    steps:
+      - name: Check out the PR head
+        uses: actions/chechout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Build the check payload
+        env: 
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha}}
+          DETAILS: ${{ github.server_url }}/${{github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 scripts/catalog_check.py "$BASE" "$HEAD_SHA" "$HEAD_SHA" "$DETAILS"
+      - name: Publish check and summary 
+        env:
+            GH_TOKEN: ${{ github.token }}
+            REPO: ${{ github.repository }}
+        run: |
+          gh api --method POST "repos/$REPO/check-runs" --input check.json \
+            --jq '"Created check: \(.name) / \(.comclusion)"'
+          jq -r '.output.title, "", .output.summary' check.json >> "$GITHUB_STEP_SUMMARY"
+          jq -e '.conclusion != "failure"' check.json
+          
