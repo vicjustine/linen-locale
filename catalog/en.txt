@@ -1,0 +1,12 @@
+pickup_ready=Order {order} can be picked up at {depot}.
+dropoff_window=Return to {depot} between {start} and {end}.
+late_return=Order {order} is {days} days overdue.
+stock_arrived={count} bundles arrived at {depot}.
+order_cancelled=Order {order} was cancelled.
+invoice_ready=Invoice {invoice} is due {date}.
+route_delay=Route {route} is delayed by {minutes} minutes.
+shortage=Order {order} is short by {count} bundles.
+temperature=Depot {depot} logged {value} degrees.
+exception_closed=Case {case} was closed by {agent}.
+handover={driver} handed order {order} to {receiver}.
+return_complete=Order {order} was returned to {depot}.

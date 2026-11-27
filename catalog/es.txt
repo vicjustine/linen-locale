@@ -1,0 +1,12 @@
+pickup_ready=El pedido {order} está disponible en {depot}.
+dropoff_window=Devolución en {depot} entre {start} y {end}.
+late_return=El pedido {order} lleva {days} días de retraso.
+stock_arrived=Llegaron {count} lotes a {depot}.
+order_cancelled=Se canceló el pedido {order}.
+invoice_ready=La factura {invoice} vence el {date}.
+route_delay=La ruta {route} lleva {minutes} minutos de retraso.
+shortage=Faltan {count} lotes del pedido {order}.
+temperature=El depósito {depot} registró {value} grados.
+exception_closed={agent} cerró el caso {case}.
+handover={driver} entregó el pedido {order} a {receiver}.
+return_complete=El pedido {order} se devolvió a {depot}.
