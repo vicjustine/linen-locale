@@ -1,4 +1,4 @@
-pickup_ready=El pedido {order} está disponible en {depot}.
+pickup_ready=El pedido {order} está disponible en {pickup_depot}.
 dropoff_window=Devolución en {depot} entre {start} y {end}.
 late_return=El pedido {order} lleva {days} días de retraso.
 stock_arrived=Llegaron {count} lotes a {depot}.
