@@ -1,4 +1,4 @@
-pickup_ready=Order {order} can be picked up at {depot}.
+pickup_ready=Pick up order {order} at {depot}.
 dropoff_window=Return to {depot} between {start} and {end}.
 late_return=Order {order} is {days} days overdue.
 stock_arrived={count} bundles arrived at {depot}.
