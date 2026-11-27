@@ -1,4 +1,4 @@
-pickup_ready=Retirez à {depot} la commande {order}.
+pickup_ready=Retirez à {pickup_depot} la commande {order}.
 dropoff_window=Retour à {depot} entre {start} et {end}.
 late_return=La commande {order} est en retard de {days} jours.
 stock_arrived={count} lots sont arrivés à {depot}.
