@@ -31,7 +31,7 @@ jobs:
           BASE: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha}}
           DETAILS: ${{ github.server_url }}/${{github.repository }}/actions/runs/${{ github.run_id }}
-        run: python3 scripts/catalog_check.py "$BASE" "$HEAD_SHA" "$HEAD_SHA" "$DETAILS"
+        run: python3 scripts/catalog_check.py "$BASE" "$HEAD_SHA" "$DETAILS"
       - name: Publish check and summary 
         env:
             GH_TOKEN: ${{ github.token }}
